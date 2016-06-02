@@ -396,12 +396,12 @@
                                 <i class="fa fa-beer fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <!--<div class="huge">26</div>-->
+                                <div class="huge" id="allAv"></div>
                                 <div>New Orders Available!</div>
                             </div>
                         </div>
                     </div>
-                    <a href="#jumpHere">
+                    <a href="javascript:showAllAvailable('jumpHere')">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -418,12 +418,12 @@
                                 <i class="fa fa-tasks fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
+                                <div class="huge">1</div>
                                 <div>You Won!</div>
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="javascript:winning()">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -440,12 +440,12 @@
                                 <i class="fa fa-tasks fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">124</div>
-                                <div>Auctions Ending!</div>
+                                <div id="allEnd" class="huge"></div>
+                                <div>Check All Your Auctions!</div>
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="javascript:ending()">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -462,12 +462,12 @@
                                 <i class="fa fa-support fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">13</div>
+                                <div class="huge">2</div>
                                 <div>You Lost!</div>
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="javascript:loosing()">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -479,9 +479,10 @@
         </div>
         <!-- /.row -->
         <div class="row">
-            <div id="jumpHere" class="col-md-12">
+            <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
+                        <a  id="jumpHere" name="jumpHere"></a>
                         <i class="fa fa-bar-chart-o fa-fw"></i> Order Lines Availaible for you
                     </div>
                     <!-- /.panel-heading -->
