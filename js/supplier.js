@@ -320,7 +320,7 @@ $(function() {
                 orderable: false,
                 "render": function ( data, type, full, meta ) {
                     return   !(showLost || showWon) ? "<input class='form-control input-sm' type='number' id='inp"+full[0]+"'>"
-                        : showLost ? 'Lost auction' : showWon ? 'You won' : '';
+                        : showLost ? '<span class="text-danger">Lost auction</span>' : showWon ? '<span class="success">You won</span>' : '';
                 }
             },
                 {
@@ -328,7 +328,8 @@ $(function() {
                     "data": null,
                     orderable: false,
                     "render": function ( data, type, full, meta ) {
-                        return  !(showLost || showWon) ? "<button class='btn btn-default btn-sm'>Submit your bid</button>" : 'FINISHED'
+                        return  !(showLost || showWon) ? "<button class='btn btn-default btn-sm'>Submit your bid</button>"
+                            : '<span class="success">FINISHED</span>'
                     }
                 }]
         } );
