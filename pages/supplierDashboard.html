@@ -56,7 +56,7 @@
                 <span class="icon-bar"></span>
             </button>
             <img class="navbar-brand img-responsive" src="../pictures/kn_logo.svg" alt="KN logo">
-            <a class="navbar-brand" href="supplierDashboard.html"> Kuehne+Nagel Logistics Grid</a>
+            <a class="navbar-brand" href="Welcome.html"> Kuehne+Nagel Logistics Grid</a>
         </div>
         <!-- /.navbar-header -->
 
@@ -166,6 +166,9 @@
                     <!--&lt;!&ndash; /input-group &ndash;&gt;-->
                     <!--</li>-->
                     <li>
+                        <a href="Welcome.html"><i class="fa fa-home fa-fw"></i> Welcome to KN Grid Log</a>
+                    </li>
+                    <li>
                         <a href="supplierDashboard.html"><i class="fa fa-dashboard fa-fw"></i> Carrier Dashboard</a>
                     </li>
                 </ul>
@@ -185,7 +188,7 @@
         <!-- /.row -->
         <div class="row">
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
+                <div onclick="showAllAvailable()" class="panel panel-primary">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
@@ -197,7 +200,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="javascript:showAllAvailable('jumpHere')">
+                    <a href="#jumpHere">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -208,7 +211,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-yellow">
+                <div class="panel panel-yellow" onclick="ending()">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
@@ -220,7 +223,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="javascript:ending()">
+                    <a href="#jumpHere">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -231,7 +234,7 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-green">
+                <div class="panel panel-green" onclick="winning()">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
@@ -243,7 +246,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="javascript:winning()">
+                    <a href="#jumpHere">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -255,7 +258,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6">
-                <div class="panel panel-red">
+                <div class="panel panel-red" onclick="loosing()">
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
@@ -267,7 +270,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="javascript:loosing()">
+                    <a href="#jumpHere">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -286,7 +289,7 @@
                 <div class="panel panel-default">
                     <!-- /.panel-heading -->
                     <div class="panel-body">
-                        <div class="row">
+                        <div class="row"><a id="jumpHere" name="jumpHere"></a>
                             <div class="col-md-12">
                                 <div class="table-responsive">
                                     <table id="example" class="table">
@@ -376,7 +379,6 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a id="jumpHere" name="jumpHere"></a>
                         <i class="fa fa-bar-chart-o fa-fw"></i> Open Auctions Chart
                     </div>
                     <!-- /.panel-heading -->

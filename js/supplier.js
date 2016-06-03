@@ -359,7 +359,7 @@ $(function() {
                 "render": function ( data, type, full, meta ) {
                     return   !(showLost || showWon) ?
                     '<div class="form-group input-group"> ' +
-                    '<input class="form-control input-sm" type="number" id="inp' + full[0] + '">' +
+                    '<input class="form-control input-sm" min="1" type="number" id="inp' + full[0] + '">' +
                     '<span class="input-group-btn">' +
                     '<button class="bid btn btn-default btn-sm" type="button"><i class="fa fa-check"></i>' +
                     '                        </button>' +
@@ -377,7 +377,7 @@ $(function() {
         $('#example').on( 'click', 'button.bid', function () {
             var data22 = table.row( $(this).parents('tr') ).data();
             var inpt_value = $('#inp'+data22[0]).val();
-            if (inpt_value != '') {
+            if (inpt_value != '' && inpt_value > 0 ) {
                 data22[7] = inpt_value;
 
                 if (curY < 1) {
