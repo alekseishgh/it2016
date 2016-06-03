@@ -190,6 +190,22 @@ function showModal(id, pickup, pdate, delivery, ddate, qty) {
     $('#delLoc').text(delivery);
     $('#delDate').text(ddate);
     $('#mdQty').text(qty);
+    if (!showLost && !showWon) {
+        $("#getting-started").countdown(Date.parse(pdate), function (event) {
+            $(this).text(event.strftime('%D days %H:%M:%S'));
+        });
+        $('#mdStatus').text('');
+    } else {
+        $("#getting-started").countdown(new Date(), function (event) {
+            $(this).text(event.strftime('%D days %H:%M:%S'));
+        });
+        if (showLost) {
+            $('#mdStatus').text('You lost');
+        } else  {
+            $('#mdStatus').text('You won');
+        }
+    }
+
 }
 
 function changea(index) {
