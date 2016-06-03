@@ -10,9 +10,8 @@ data= [[{data:[
         "Edinburgh KN Xdock",
         "12 Aug 2016",
         "800 packs",
-        "50 eur",
-        "0",
-        "TNixon01"
+        "50",
+        "0"
     ]
 
 ]},{data:[]}],
@@ -24,9 +23,8 @@ data= [[{data:[
             "Narva KN Xdock",
             "01 Aug 2016",
             "30 bags",
-            "77 eur",
-            "0",
-            "Garr87gs222"
+            "77",
+            "0"
         ],
         [
             "TNyyyon01",
@@ -35,9 +33,8 @@ data= [[{data:[
             "Edinburgh KN Xdock",
             "12 Aug 2016",
             "800 packs",
-            "757 eur",
-            "0",
-            "TNyyyon01"
+            "757",
+            "0"
         ]
     ]
 },{data:[]}],
@@ -48,10 +45,9 @@ data= [[{data:[
             "17 June 2016",
             "Narva KN Xdock",
             "01 Aug 2016",
-            "3 euro pallets",
-            "797 eur",
-            "0",
-            "Garret22"
+            "3o pallets",
+            "797",
+            "0"
         ],
         [
             "TNn099991",
@@ -60,9 +56,8 @@ data= [[{data:[
             "NY KN Xdock",
             "12 Aug 2016",
             "10 boxes",
-            "17 eur",
-            "0",
-            "TNn099991"
+            "17",
+            "0"
         ],
         [
             "Ginters555",
@@ -71,9 +66,8 @@ data= [[{data:[
             "Helsinki KN Xdock",
             "11 Aug 2016",
             "30 packs",
-            "227 eur",
-            "0",
-            "Ginters555"
+            "227",
+            "0"
         ]
     ]
     },{data:[ [
@@ -83,9 +77,8 @@ data= [[{data:[
         "London KN Xdock",
         "11 Aug 2016",
         "3 pallets",
-        "7523 eur",
-        "7723 eur",
-        "Gters555"
+        "7523",
+        "7723"
     ]]}],
     [{data:[
         [
@@ -95,9 +88,8 @@ data= [[{data:[
             "Narva KN Xdock",
             "01 Aug 2016",
             "110 boxes",
-            "97 eur",
-            "0",
-            "Ga5rf2"
+            "97",
+            "0"
         ],
         [
             "T8u9991",
@@ -106,9 +98,8 @@ data= [[{data:[
             "NY KN Xdock",
             "12 Aug 2016",
             "800 bags",
-            "177 eur",
-            "0",
-            "T8u9991"
+            "177",
+            "0"
         ],
         [
             "G45ers155",
@@ -117,9 +108,8 @@ data= [[{data:[
             "Helsinki KN Xdock",
             "11 Aug 2016",
             "30 pallets",
-            "277 eur",
-            "0",
-            "G45ers155"
+            "277",
+            "0"
         ],
         [
             "Gi33ers555",
@@ -128,9 +118,8 @@ data= [[{data:[
             "Helsinki KN Xdock",
             "11 Aug 2016",
             "9 pallets",
-            "377 eur",
-            "0",
-            "Gi33ers555"
+            "377",
+            "0"
         ]
     ]
     },{data:[]}]
@@ -144,9 +133,8 @@ var lostData = {data:[
         "London KN Xdock",
         "01 Aug 2016",
         "110 boxes",
-        "97 eur",
-        "134",
-        "LOST1"
+        "97",
+        "134"
     ],
     [
         "LOST2",
@@ -155,9 +143,8 @@ var lostData = {data:[
         "London KN Xdock",
         "12 Aug 2016",
         "800 bags",
-        "177 eur",
-        "777",
-        "LOST2"
+        "177",
+        "777"
     ]
 ]
 };
@@ -169,9 +156,8 @@ var wonData = {data:[
         "Moscow KN Xdock",
         "01 Aug 2016",
         "110 boxes",
-        "100 eur",
         "100",
-        "WON444"
+        "100"
     ]
 ]
 };
@@ -314,24 +300,37 @@ $(function() {
                  );
              },
 
-            "columnDefs": [{
-                "targets": -2,
-                "data": null,
-                orderable: false,
-                "render": function ( data, type, full, meta ) {
-                    return   !(showLost || showWon) ? "<input class='form-control input-sm' type='number' id='inp"+full[0]+"'>"
-                        : showLost ? '<span class="text-danger">Lost auction</span>' : showWon ? '<span class="success">You won</span>' : '';
-                }
-            },
+            "columnDefs": [
                 {
-                    "targets": -1,
+                    "targets": 6,
                     "data": null,
                     orderable: false,
                     "render": function ( data, type, full, meta ) {
-                        return  !(showLost || showWon) ? "<button class='btn btn-default btn-sm'>Submit your bid</button>"
-                            : '<span class="success">FINISHED</span>'
+                        return   !(showLost || showWon) ?
+                            '<span class="text-warning">'+
+                            (parseInt(full[7]) != 0 ? parseInt(full[6]) > parseInt(full[7]) ?
+                                'You are the first' : Math.round(parseInt(full[7]) / ((parseInt(full[7]) - parseInt(full[6]))/100)):'NO' )
+                            +'</span>'
+                            : showLost ? '<span class="text-danger">Lost auction</span>' : showWon ? '<span class="success">You won</span>' : '';
+
                     }
-                }]
+                },
+                {
+                "targets": -1,
+                "data": null,
+                orderable: false,
+                "render": function ( data, type, full, meta ) {
+                    return   !(showLost || showWon) ?
+                    '<div class="form-group input-group"> ' +
+                    '<input class="form-control input-sm" type="number" id="inp' + full[0] + '">' +
+                    '<span class="input-group-btn">' +
+                    '<button class="btn btn-default  btn-sm" type="button"><i class="fa fa-check"></i>' +
+                    '                        </button>' +
+                    '                        </span></div>'
+                        : '<span class="text-success">Finished</span>';
+
+                }
+            }]
         } );
 
 
