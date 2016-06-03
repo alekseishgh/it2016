@@ -169,7 +169,7 @@
                     <!--&lt;!&ndash; /input-group &ndash;&gt;-->
                     <!--</li>-->
                     <li>
-                        <a href="supplierDashboard.html"><i class="fa fa-dashboard fa-fw"></i> Supplier Dashboard</a>
+                        <a href="supplierDashboard.html"><i class="fa fa-dashboard fa-fw"></i> Carrier Dashboard</a>
                     </li>
                 </ul>
             </div>
@@ -332,6 +332,55 @@
                                 <!-- /.table-responsive -->
                             </div>
                             <!-- /.col-lg-4 (nested) -->
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title" id="myModalLabel">Order Details</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="modalContentC">
+                                                <form role="form">
+                                                    <fieldset disabled>
+                                                        <div class="form-group">
+                                                            <label for="mdOrderNum">Order Number</label>
+                                                            <span class="form-control-static" id="mdOrderNum"></span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="pickLoc">Pickup Location</label>
+                                                            <span class="form-control-static" id="pickLoc"></span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="pickDate">Pickup Date</label>
+                                                            <span class="form-control-static" id="pickDate"></span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="delLoc">Delivery Location</label>
+                                                            <span class="form-control-static" id="delLoc"></span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="delDate">Delivery Date</label>
+                                                            <span class="form-control-static" id="delDate"></span>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="mdQty">Quantity</label>
+                                                            <span class="form-control-static" id="mdQty"></span>
+                                                        </div>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
                         </div>
                         <!-- /.row -->
                     </div>

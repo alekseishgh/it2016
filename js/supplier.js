@@ -183,6 +183,15 @@ var chartData = [{
 var table = {};
 var currIndex = 4, curY = 0;
 
+function showModal(id, pickup, pdate, delivery, ddate, qty) {
+    $('#mdOrderNum').text(id);
+    $('#pickLoc').text(pickup);
+    $('#pickDate').text(pdate);
+    $('#delLoc').text(delivery);
+    $('#delDate').text(ddate);
+    $('#mdQty').text(qty);
+}
+
 function changea(index) {
     showAll = false;
     showEnding = false;
@@ -302,6 +311,18 @@ $(function() {
 
             "columnDefs": [
                 {
+                    "targets": 0,
+                    "data": null,
+                    "render": function ( data, type, full, meta ) {
+                        return  '<button class="modalBtn btn btn-link btn-sm" data-toggle="modal" ' +
+                            'data-target="#myModal" type="button" ' +
+                            'onclick="showModal(\''+full[0]+'\', \''+full[1]+'\', \''+full[2]+'\',\''+full[3]+'\',\''+full[4]+'\',\''+full[5]+'\')">' +
+                            '<i class="fa fa-search"></i>' +
+                            '  </button> '   + full[0];
+
+                    }
+                },
+                {
                     "targets": 6,
                     "data": null,
                     orderable: false,
@@ -309,7 +330,7 @@ $(function() {
                         return   !(showLost || showWon) ?
                             '<span class="text-warning">'+
                             (parseInt(full[7]) != 0 ? parseInt(full[6]) > parseInt(full[7]) ?
-                                'You are the first' : Math.round(parseInt(full[7]) / ((parseInt(full[7]) - parseInt(full[6]))/100)):'NO' )
+                                'You are the first' : Math.round(parseInt(full[7]) / ((parseInt(full[7]) - parseInt(full[6]))/100)):'NO')
                             +'</span>'
                             : showLost ? '<span class="text-danger">Lost auction</span>' : showWon ? '<span class="success">You won</span>' : '';
 
@@ -324,7 +345,7 @@ $(function() {
                     '<div class="form-group input-group"> ' +
                     '<input class="form-control input-sm" type="number" id="inp' + full[0] + '">' +
                     '<span class="input-group-btn">' +
-                    '<button class="btn btn-default  btn-sm" type="button"><i class="fa fa-check"></i>' +
+                    '<button class="bid btn btn-default btn-sm" type="button"><i class="fa fa-check"></i>' +
                     '                        </button>' +
                     '                        </span></div>'
                         : '<span class="text-success">Finished</span>';
@@ -333,8 +354,11 @@ $(function() {
             }]
         } );
 
+        //$('#example').on( 'click', 'button.modalBtn', function () {
+        //
+        //});
 
-        $('#example').on( 'click', 'button', function () {
+        $('#example').on( 'click', 'button.bid', function () {
             var data22 = table.row( $(this).parents('tr') ).data();
             var inpt_value = $('#inp'+data22[0]).val();
             if (inpt_value != '') {
