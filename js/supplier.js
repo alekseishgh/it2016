@@ -346,7 +346,7 @@ $(function() {
                         return   !(showLost || showWon) ?
                             '<span class="text-warning">'+
                             (parseInt(full[7]) != 0 ? parseInt(full[6]) > parseInt(full[7]) ?
-                                'You are the first' : Math.round(parseInt(full[7]) / ((parseInt(full[7]) - parseInt(full[6]))/100)):'NO')
+                                'You are the first' : Math.round(4 + parseInt(full[6]) * (parseInt(full[7]) - parseInt(full[6]))/100):'NO')
                             +'</span>'
                             : showLost ? '<span class="text-danger">Lost auction</span>' : showWon ? '<span class="success">You won</span>' : '';
 
