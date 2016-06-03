@@ -1,132 +1,153 @@
-<!DOCTYPE html>
-<html>
-  <head>
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-    <meta charset="utf-8">
-    <title>Order details</title>
+    <title></title>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../bower_components/bootstrap/dist/css//bootstrap-theme.css" rel="stylesheet"/>
     <style>
-      #map {
-        height: 100%;
-      }
+        #map {
+            width: 100%;
+            height: 500px;
+        }
     </style>
-  </head>                                  
-  <body>
-    <table>
-	<tr><td width="800"><h1>Routes view</h1></td></tr>
-    <tr><td width="100%" height="500px"><div id="map"></div></td></tr>
+   
+</head>
+<body>
 
-    </table>
 
-    <script>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>Routes view</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-5">
 
-      function initMap() {
-	    
-		var tll = new google.maps.LatLng(59.436962, 24.753574);
-		var riga = new google.maps.LatLng(56.946285, 24.105078);
-		var warsaw = new google.maps.LatLng(52.237049, 21.017532);
-		var gdansk = new google.maps.LatLng(54.372158, 18.638306);
-		var berlin = new google.maps.LatLng(52.520008, 13.404954);
-		var hamburg = new google.maps.LatLng(53.551086, 9.993682);
-	  
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 5,
-          center: {lat: 55, lng: 10},
-          mapTypeId: google.maps.MapTypeId.TERRAIN
+            <div id="map"></div>
+        </div>
+        <div id="data" class="col-sm-7">
+
+        </div>
+    </div>
+
+</div>
+<script>
+
+    function initMap() {
+
+        var tll = new google.maps.LatLng(59.436962, 24.753574);
+        var riga = new google.maps.LatLng(56.946285, 24.105078);
+        var warsaw = new google.maps.LatLng(52.237049, 21.017532);
+        var gdansk = new google.maps.LatLng(54.372158, 18.638306);
+        var berlin = new google.maps.LatLng(52.520008, 13.404954);
+        var hamburg = new google.maps.LatLng(53.551086, 9.993682);
+
+        var divMapObj = document.getElementById('map');
+
+        var map = new google.maps.Map(divMapObj, {
+            zoom: 5,
+            center: { lat: 55, lng: 17 },
+            mapTypeId: google.maps.MapTypeId.TERRAIN
         });
 
-var tll_m = new google.maps.Marker({
-    position: tll,
-    map: map,
-    title: 'Tallinn'
-  });
+        var tll_m = new google.maps.Marker({
+            position: tll,
+            map: map,
+            title: 'Tallinn'
+        });
 
-var riga_m = new google.maps.Marker({
-    position: riga,
-    map: map,
-    title: 'Riga'
-  });
-  
-var warsaw_m = new google.maps.Marker({
-    position: warsaw,
-    map: map,
-    title: 'warsaw'
-  });      
-var gdansk_m = new google.maps.Marker({
-    position: gdansk,
-    map: map,
-    title: 'gdansk'
-  }); 
-var berlin_m = new google.maps.Marker({
-    position: berlin,
-    map: map,
-    title: 'berlin'
-  });  
-var hamburg_m = new google.maps.Marker({
-    position: hamburg,
-    map: map,
-    title: 'hamburg'
-  });     
+        var riga_m = new google.maps.Marker({
+            position: riga,
+            map: map,
+            title: 'Riga'
+        });
+
+        var warsaw_m = new google.maps.Marker({
+            position: warsaw,
+            map: map,
+            title: 'warsaw'
+        });
+        var gdansk_m = new google.maps.Marker({
+            position: gdansk,
+            map: map,
+            title: 'gdansk'
+        });
+        var berlin_m = new google.maps.Marker({
+            position: berlin,
+            map: map,
+            title: 'berlin'
+        });
+        var hamburg_m = new google.maps.Marker({
+            position: hamburg,
+            map: map,
+            title: 'hamburg'
+        });
         var route1 = [
-          tll,
-          riga,
-		  warsaw,
-		  berlin,
-		  hamburg
+            tll,
+            riga,
+            warsaw,
+            berlin,
+            hamburg
         ];
         var path1 = new google.maps.Polyline({
-          path: route1,
-          geodesic: true,
-          strokeColor: '#FF0000',
-          strokeOpacity: 1.0,
-          strokeWeight: 2
+            path: route1,
+            geodesic: true,
+            strokeColor: '#FF0000',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
         });
         path1.setMap(map);
         var route2 = [
-          tll,
-          riga,
-		  gdansk,
-		  hamburg          
+            tll,
+            riga,
+            gdansk,
+            hamburg
         ];
         var path2 = new google.maps.Polyline({
-          path: route2,
-          geodesic: true,
-          strokeColor: '#00FF00',
-          strokeOpacity: 1.0,
-          strokeWeight: 2
+            path: route2,
+            geodesic: true,
+            strokeColor: '#00FF00',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
         });
         path2.setMap(map);
         var route3 = [
-          tll,
-		  gdansk,
-		  hamburg          
+            tll,
+            gdansk,
+            hamburg
         ];
         var path3 = new google.maps.Polyline({
-          path: route3,
-          geodesic: true,
-          strokeColor: '#0000FF',
-          strokeOpacity: 1.0,
-          strokeWeight: 2
+            path: route3,
+            geodesic: true,
+            strokeColor: '#0000FF',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
         });
 
         path3.setMap(map);
-		
+
         var route4 = [
-          tll,
-		  hamburg          
+            tll,
+            hamburg
         ];
         var path4 = new google.maps.Polyline({
-          path: route4,
-          geodesic: true,
-          strokeColor: '#00FFFF',
-          strokeOpacity: 1.0,
-          strokeWeight: 2
+            path: route4,
+            geodesic: true,
+            strokeColor: '#00FFFF',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
         });
 
-        path4.setMap(map);		
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMKvYQrncIi2btWZZHG2fL48ka2tc81-c&callback=initMap">
-    </script>
-  </body>
+        path4.setMap(map);
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMKvYQrncIi2btWZZHG2fL48ka2tc81-c&callback=initMap"></script>
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../js/rowDetail.js"></script>
+</body>
 </html>
